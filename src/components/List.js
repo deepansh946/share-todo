@@ -17,7 +17,7 @@ function List(props) {
     >
       <Col>
         {items.map(({ title, createdAt }, index) => (
-          <div className="mb-4">
+          <div className="mb-4" key={createdAt}>
             <Row className="align-items-center">
               <MdDelete
                 className="mr-2"
