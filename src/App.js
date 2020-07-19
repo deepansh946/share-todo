@@ -1,12 +1,15 @@
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
+import { Container } from "react-bootstrap";
 import AppRoutes from "./AppRoutes";
 
 function App() {
   return (
-    <BrowserRouter>
-      <AppRoutes />
-    </BrowserRouter>
+    <Container>
+      <BrowserRouter>
+        <AppRoutes />
+      </BrowserRouter>
+    </Container>
   );
 }
 

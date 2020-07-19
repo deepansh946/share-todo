@@ -2,17 +2,27 @@ import firebase from "../firebase";
 
 const database = firebase.database();
 
-const add = async ({ title, createdAt }) => {
-  const uid = Math.random().toString(36).slice(9);
+const add = async ({ uid, title }) => {
+  let tempUid = uid,
+    todos = [];
 
-  await database.ref(`${uid}/`).set(
+  if (!tempUid) {
+    tempUid = Math.random().toString(36).slice(9);
+  } else {
+    todos = await getAll({ uid });
+  }
+
+  const newTodos = [
+    ...todos,
     JSON.stringify({
       title,
-      createdAt
+      createdAt: new Date()
     })
-  );
+  ];
 
-  return uid;
+  await database.ref(`${tempUid}/`).set(newTodos);
+
+  return tempUid;
 };
 
 const getAll = async ({ uid }) => {
