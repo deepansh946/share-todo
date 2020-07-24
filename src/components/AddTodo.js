@@ -25,7 +25,7 @@ function AddTodo(props) {
           right: "1.1rem",
           top: "4.6rem"
         }}
-        onClick={async () => {
+        onClick={() => {
           add({
             uid,
             title: text
