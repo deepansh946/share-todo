@@ -1,5 +1,4 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
 import { Row } from "react-bootstrap";
 import { MdAddBox } from "react-icons/md";
 
@@ -8,7 +7,6 @@ const { Input } = Inputs;
 
 function AddTodo(props) {
   const { add, text, setText, uid } = props;
-  const history = useHistory();
 
   return (
     <Row className="justify-content-between mb-4">
@@ -28,14 +26,10 @@ function AddTodo(props) {
           top: "4.6rem"
         }}
         onClick={async () => {
-          const tempUid = await add({
+          add({
             uid,
             title: text
           });
-
-          const routePath = tempUid || uid;
-          setText("");
-          history.push(`${routePath}`);
         }}
       />
     </Row>
