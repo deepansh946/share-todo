@@ -15,6 +15,7 @@ function TodoList(props) {
   const history = useHistory();
   const [todos, setTodos] = useState([]);
   const [title, setTitle] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const getTodos = async () => {
     const res = await getAll({ uid: location.pathname });
@@ -38,9 +39,11 @@ function TodoList(props) {
   };
 
   useEffect(() => {
+    setLoading(true);
     const dbRef = databaseRef(location.pathname);
     dbRef.on("value", snapshot => {
       setTodos(snapshot.val());
+      setLoading(false);
     });
   }, [location.pathname]);
 
@@ -57,7 +60,12 @@ function TodoList(props) {
         uid={location.pathname}
       />
 
-      <List items={todos || []} onDelete={onDelete} uid={location.pathname} />
+      <List
+        items={todos || []}
+        onDelete={onDelete}
+        uid={location.pathname}
+        loading={loading}
+      />
     </PrimaryCard>
   );
 }

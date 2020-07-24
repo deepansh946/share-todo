@@ -1,12 +1,15 @@
 import React from "react";
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Spinner } from "react-bootstrap";
 import { Typography } from "../theme";
 import { MdDelete } from "react-icons/md";
 
 const { Text } = Typography;
 
 function List(props) {
-  const { items, onDelete, uid } = props;
+  const { items, onDelete, uid, loading } = props;
+
+  if (loading || typeof items !== "object")
+    return <Spinner className="mx-auto" animation="grow" variant="dark" />;
 
   return (
     <Row
