@@ -5,6 +5,9 @@ import {
   FaLinkedin,
   FaGithubSquare
 } from "react-icons/fa";
+import { Typography } from "../theme";
+
+const { Text } = Typography;
 
 const TWITTER = "https://twitter.com/deepansh946";
 const LINKEDIN = "https://linkedin.com/in/deepansh946";
@@ -13,9 +16,9 @@ const GITHUB = "https://github.com/deepansh946";
 function Footer(props) {
   return (
     <>
-      <div>
-        Made with <FaHeart color="red" size={24} /> by Deepansh
-      </div>
+      <Text>
+        Made with <FaHeart size={24} className="heart-icon" /> by Deepansh
+      </Text>
       <div className="mt-2">
         <a
           href={TWITTER}

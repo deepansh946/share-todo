@@ -38,7 +38,7 @@ function List(props) {
             );
           })
         ) : (
-          <div>No Tasks here</div>
+          <Text>No Tasks here</Text>
         )}
       </Col>
     </Row>

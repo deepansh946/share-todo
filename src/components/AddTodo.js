@@ -9,7 +9,7 @@ function AddTodo(props) {
   const { add, text, setText, uid } = props;
 
   return (
-    <Row className="justify-content-between mb-4">
+    <Row className="justify-content-between mb-4 position-sticky">
       <Input
         placeholder={"What needs to be done?"}
         value={text}

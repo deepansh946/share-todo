@@ -1,7 +1,6 @@
 import styled from "styled-components";
-import { Card } from "react-bootstrap";
 
-const PrimaryCard = styled(Card)`
+const PrimaryCard = styled.div`
   min-height: 25rem;
   width: 30rem;
   margin: 10rem auto;
