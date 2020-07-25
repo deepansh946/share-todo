@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import { useLocation } from "react-router-dom";
 import {
   FaCopy,
   FaHeart,
@@ -16,6 +17,9 @@ const GITHUB = "https://github.com/deepansh946";
 
 function Footer(props) {
   const linkRef = useRef(null);
+  const location = useLocation();
+
+  const baseUrl = window.location.origin;
 
   const copyToClipboard = () => {
     const el = linkRef.current;
@@ -31,7 +35,8 @@ function Footer(props) {
   return (
     <>
       <Text className="mb-2">
-        Your Link: <span ref={linkRef}>{window.location.href}</span>
+        Your Link:
+        <span ref={linkRef}>{baseUrl + location.pathname}</span>
         <FaCopy size={24} className="ml-1" onClick={copyToClipboard} />
       </Text>
       <Text>

@@ -11,8 +11,8 @@ function App() {
     <Container className="text-center">
       <BrowserRouter>
         <AppRoutes />
+        <Footer />
       </BrowserRouter>
-      <Footer />
     </Container>
   );
 }
