@@ -28,6 +28,9 @@ function TodoList(props) {
   };
 
   const onAdd = async ({ uid, title }) => {
+    if (!title) {
+      return;
+    }
     const tempUid = await add({
       uid,
       title

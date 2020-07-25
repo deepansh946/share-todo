@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Card } from "react-bootstrap";
 
 const PrimaryCard = styled(Card)`
+  min-height: 25rem;
   width: 30rem;
   margin: 10rem auto;
   padding: 2rem 2rem;

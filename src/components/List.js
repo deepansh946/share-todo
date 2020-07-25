@@ -26,11 +26,7 @@ function List(props) {
               <div className="mb-4" key={createdAt}>
                 <Row className="align-items-center">
                   <MdDelete
-                    className="mr-2"
-                    style={{
-                      cursor: "pointer",
-                      fontSize: "1.4rem"
-                    }}
+                    className="mr-2 delete-icon"
                     onClick={() => {
                       onDelete({ uid, index });
                     }}

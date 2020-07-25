@@ -2,13 +2,17 @@ import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import AppRoutes from "./AppRoutes";
+import Footer from "./components/Footer";
+
+import "./App.css";
 
 function App() {
   return (
-    <Container>
+    <Container className="text-center">
       <BrowserRouter>
         <AppRoutes />
       </BrowserRouter>
+      <Footer />
     </Container>
   );
 }

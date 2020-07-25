@@ -18,13 +18,7 @@ function AddTodo(props) {
         }}
       />
       <MdAddBox
-        style={{
-          cursor: "pointer",
-          fontSize: "1.4rem",
-          position: "absolute",
-          right: "1.1rem",
-          top: "4.6rem"
-        }}
+        className="add-icon"
         onClick={() => {
           add({
             uid,
