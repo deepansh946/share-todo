@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useRef } from "react";
 import {
+  FaCopy,
   FaHeart,
   FaTwitterSquare,
   FaLinkedin,
@@ -14,8 +15,25 @@ const LINKEDIN = "https://linkedin.com/in/deepansh946";
 const GITHUB = "https://github.com/deepansh946";
 
 function Footer(props) {
+  const linkRef = useRef(null);
+
+  const copyToClipboard = () => {
+    const el = linkRef.current;
+    var range = document.createRange();
+    range.selectNodeContents(el);
+    var sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+    document.execCommand("copy");
+    sel.removeAllRanges();
+  };
+
   return (
     <>
+      <Text className="mb-2">
+        Your Link: <span ref={linkRef}>{window.location.href}</span>
+        <FaCopy size={24} className="ml-1" onClick={copyToClipboard} />
+      </Text>
       <Text>
         Made with <FaHeart size={24} className="heart-icon" /> by Deepansh
       </Text>
